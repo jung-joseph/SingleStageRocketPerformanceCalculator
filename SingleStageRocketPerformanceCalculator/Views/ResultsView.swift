@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ResultsView: View {
     
-    @ObservedObject var singleStageModel: SingleStageModel
+@StateObject private var modelDetailViewModel = ModelDetailViewModel()
+@Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
@@ -22,10 +23,10 @@ struct ResultsView: View {
         Text("Problem Parameters")
             .padding()
             VStack{
-                ParametersView(singleStageModel: singleStageModel)
+                ParametersView(singleStageModel: modelDetailViewModel)
                 
                 Divider()
-                ComputedResultsView(singleStageModel: singleStageModel)
+//                ComputedResultsView(singleStageModel: modelDetailViewModel)
             }
             
         Spacer()
@@ -35,9 +36,9 @@ struct ResultsView: View {
     }
 }
 
-struct ResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let temp = SingleStageModel()
-        ResultsView(singleStageModel: temp)
-    }
-}
+//struct ResultsView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        let temp = ModelDetailViewModel()
+////        ResultsView(singleStageModel: temp)
+//    }
+//}

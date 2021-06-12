@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ParametersView: View {
-    @ObservedObject var singleStageModel: SingleStageModel
+    @ObservedObject var singleStageModel: ModelDetailViewModel
 
     var body: some View {
         HStack{

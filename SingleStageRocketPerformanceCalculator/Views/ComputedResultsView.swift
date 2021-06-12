@@ -8,26 +8,44 @@
 import SwiftUI
 
 struct ComputedResultsView: View {
-    @ObservedObject var singleStageModel: SingleStageModel
+    var singleStageModel: ExistingModelViewModel
+    
     @State private var targetS_text: String = ""
     
     @State private var iter: Int = 0
-
+    
+    @State private var ptC: Double = 0
+    
     
     var body: some View {
         
         let bisection = BisectionForCd(fromsingleStageModel: singleStageModel)
-//        var iter:Int = 0
-        
+        //        var iter:Int = 0
+        NavigationView {
         VStack{
             Text("Computed Values")
                 .padding()
             
+            //            Group{
+            //                Text("name \(singleStageModel.name)")
+            //                Text("crossSection \(singleStageModel.crossSectionalArea)")
+            //                Text("Cd \(singleStageModel.coefficientOfDrag)")
+            //                Text("aveDuration \(singleStageModel.thrustDuration)")
+            //                Text("aveMass \(singleStageModel.aveMass)")
+            //            }
+            //            Group{
+            //                Text("aveWoPropellant \(singleStageModel.massWoPropellant)")
+            //                Text("PropellantMass \(singleStageModel.propellantMass)")
+            //                Text("aveThrust \(singleStageModel.aveThrust)")
+            //                Text("mach \(singleStageModel.mach)")
+            //                Text("temperature \(singleStageModel.temperature)")
+            //                Text("rho \(singleStageModel.rho)")
+            //                Text("g \(singleStageModel.g)")
+            //            }
             
             HStack{
                 Text("Terminal Velocity:")
                     .padding(.leading)
-                
                 Text(String(format:"%.2f m/s",singleStageModel.terminalVelocity()))
                     .foregroundColor(.red)
                 Spacer()
@@ -87,48 +105,44 @@ struct ComputedResultsView: View {
             
             Divider()
             
-            HStack {
-                Text("Update Cd")
+            Group {
+                Text("Update Drag Coefficient if Actual Alt Known")
                     .foregroundColor(.red)
-                TextField("Max.Alt(if known),m", text: $targetS_text, onCommit:{
-                    singleStageModel.targetS = Double(targetS_text) ?? 0.0
-                    
-                    if (singleStageModel.targetS != 0.0 ) {
-                        iter = bisection.bisect(targetS: singleStageModel.targetS)
-                    }
-
-
                 
-                    
-                    
+                TextField("Enter Max.Alt(if known),m", text: $targetS_text, onCommit:{
+                    singleStageModel.targetS = Double(targetS_text) ?? 0.0
                 })
                 .foregroundColor(.green)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.decimalPad)
                 
-            }
-            if singleStageModel.targetS != 0.0 {
-               
-                    HStack{
-                        
-                        Text("Updated Cd:")
-                            .padding(.leading)
-                        
-                        Text(String(format:"%.2f",singleStageModel.coefficientOfDrag))
-                            .foregroundColor(.red)
-                        Text("(\(iter) Iterations)")
-                        Spacer()
+                Button("Solve for a New Cd") {
+                    print("Solve Pushed")
+                    ptC = bisection.bisect(targetS: singleStageModel.targetS)
 
-                    }.padding(.leading, 20)
+                }
+                .padding()
+                .foregroundColor(Color.white)
+                .background(Color.red)
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                HStack {
+                Text("Updated Cd")
+                                                .foregroundColor(.red)
+                Text(String(format:"%.2f",ptC))
+                }
             }
+ 
         }
-        
     }
+    }
+    
 }
 
-struct ComputedResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let temp = SingleStageModel()
-        ComputedResultsView(singleStageModel: temp)
-    }
-}
+
+//struct ComputedResultsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let temp = EditModelViewModel()
+////        ComputedResultsView(singleStageModel: temp)
+//    }
+//}

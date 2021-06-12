@@ -12,7 +12,7 @@ class BisectionForCd: ObservableObject{
     @Published var iteration: Int = 0
     
     
-    var singleStageModel: SingleStageModel
+    var singleStageModel: ExistingModelViewModel
     var tol: Double
     var residual: Double
     var ptA: Double
@@ -23,16 +23,16 @@ class BisectionForCd: ObservableObject{
     var fatC: Double = 0.0
     var targetS: Double = 0.0
     
-    init(fromsingleStageModel singleStageModel: SingleStageModel) {
+    init(fromsingleStageModel singleStageModel: ExistingModelViewModel) {
         self.singleStageModel = singleStageModel
         ptA = 0.1
         ptB = 1.0
         ptC = (ptA + ptB)/2.0
-        tol = 1.0
+        tol = 0.1
         residual = 100.0
     }
     
-    func bisect(targetS: Double) -> Int {
+    func bisect(targetS: Double) -> Double {
         //start the iteration
         self.iteration = 0
         self.singleStageModel.coefficientOfDrag = ptA
@@ -66,8 +66,9 @@ class BisectionForCd: ObservableObject{
             self.residual = targetS - fatC
 
         }
+        print("In bisect \(self.iteration)  \(self.ptC) \(self.fatC)")
         self.singleStageModel.coefficientOfDrag = ptC
-        return self.iteration
+        return self.ptC
 //        print("iteration \(self.iteration)")
     }
     

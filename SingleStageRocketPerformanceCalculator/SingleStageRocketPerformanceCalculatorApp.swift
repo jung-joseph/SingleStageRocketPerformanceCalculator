@@ -11,7 +11,7 @@ import SwiftUI
 struct SingleStageRocketPerformanceCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ModelListView()
         }
     }
 }

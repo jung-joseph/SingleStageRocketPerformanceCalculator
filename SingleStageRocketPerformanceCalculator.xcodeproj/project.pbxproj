@@ -8,28 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		531A982226274C6300C3057D /* BisectionForCd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531A982126274C6300C3057D /* BisectionForCd.swift */; };
+		533D480A263753BF00A544B6 /* ExistingModelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D4809263753BF00A544B6 /* ExistingModelDetailView.swift */; };
+		534F4B9D26713D3F00083456 /* ExistingModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F4B9C26713D3F00083456 /* ExistingModelViewModel.swift */; };
+		534F4BA22672412E00083456 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F4BA12672412E00083456 /* TestView.swift */; };
 		535B72612620CAC30031AE0F /* SingleStageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535B72602620CAC30031AE0F /* SingleStageModel.swift */; };
 		535B72642620D4D00031AE0F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535B72632620D4D00031AE0F /* ResultsView.swift */; };
 		535B72672620E1B30031AE0F /* ParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535B72662620E1B30031AE0F /* ParametersView.swift */; };
 		535B726A2620E2EA0031AE0F /* ComputedResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535B72692620E2EA0031AE0F /* ComputedResultsView.swift */; };
+		538F51E92631F73500A18A0C /* ModelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F51E82631F73500A18A0C /* ModelListView.swift */; };
 		5393C666261F770D008CE290 /* SingleStageRocketPerformanceCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C665261F770D008CE290 /* SingleStageRocketPerformanceCalculatorApp.swift */; };
-		5393C668261F770D008CE290 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C667261F770D008CE290 /* ContentView.swift */; };
+		5393C668261F770D008CE290 /* AddModelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C667261F770D008CE290 /* AddModelDetailView.swift */; };
 		5393C66A261F7710008CE290 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5393C669261F7710008CE290 /* Assets.xcassets */; };
 		5393C66D261F7710008CE290 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5393C66C261F7710008CE290 /* Preview Assets.xcassets */; };
+		53E1F11D263236E700AA06EA /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1F11C263236E700AA06EA /* View+Extensions.swift */; };
+		53E1F123263323E200AA06EA /* RocketAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53E1F121263323E200AA06EA /* RocketAppModel.xcdatamodeld */; };
+		53E1F126263326A100AA06EA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1F125263326A100AA06EA /* CoreDataManager.swift */; };
+		53E1F12A2633389A00AA06EA /* ModelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1F1292633389A00AA06EA /* ModelListViewModel.swift */; };
+		53E1F12F26333F2700AA06EA /* ModelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1F12E26333F2700AA06EA /* ModelDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		531A982126274C6300C3057D /* BisectionForCd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisectionForCd.swift; sourceTree = "<group>"; };
+		533D4809263753BF00A544B6 /* ExistingModelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingModelDetailView.swift; sourceTree = "<group>"; };
+		534F4B9C26713D3F00083456 /* ExistingModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingModelViewModel.swift; sourceTree = "<group>"; };
+		534F4BA12672412E00083456 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		535B72602620CAC30031AE0F /* SingleStageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStageModel.swift; sourceTree = "<group>"; };
 		535B72632620D4D00031AE0F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		535B72662620E1B30031AE0F /* ParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersView.swift; sourceTree = "<group>"; };
 		535B72692620E2EA0031AE0F /* ComputedResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputedResultsView.swift; sourceTree = "<group>"; };
+		538F51E82631F73500A18A0C /* ModelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListView.swift; sourceTree = "<group>"; };
 		5393C662261F770D008CE290 /* SingleStageRocketPerformanceCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingleStageRocketPerformanceCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5393C665261F770D008CE290 /* SingleStageRocketPerformanceCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStageRocketPerformanceCalculatorApp.swift; sourceTree = "<group>"; };
-		5393C667261F770D008CE290 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5393C667261F770D008CE290 /* AddModelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModelDetailView.swift; sourceTree = "<group>"; };
 		5393C669261F7710008CE290 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5393C66C261F7710008CE290 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5393C66E261F7710008CE290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E1F11C263236E700AA06EA /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		53E1F122263323E200AA06EA /* CoreDataManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataManager.xcdatamodel; sourceTree = "<group>"; };
+		53E1F125263326A100AA06EA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		53E1F1292633389A00AA06EA /* ModelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListViewModel.swift; sourceTree = "<group>"; };
+		53E1F12E26333F2700AA06EA /* ModelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +61,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538F51EB2631F74300A18A0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				538F51E82631F73500A18A0C /* ModelListView.swift */,
+				5393C667261F770D008CE290 /* AddModelDetailView.swift */,
+				535B72632620D4D00031AE0F /* ResultsView.swift */,
+				535B72662620E1B30031AE0F /* ParametersView.swift */,
+				535B72692620E2EA0031AE0F /* ComputedResultsView.swift */,
+				533D4809263753BF00A544B6 /* ExistingModelDetailView.swift */,
+				534F4BA12672412E00083456 /* TestView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		538F51EC2631F79000A18A0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				535B72602620CAC30031AE0F /* SingleStageModel.swift */,
+				531A982126274C6300C3057D /* BisectionForCd.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5393C659261F770D008CE290 = {
 			isa = PBXGroup;
 			children = (
@@ -63,15 +104,15 @@
 			isa = PBXGroup;
 			children = (
 				5393C665261F770D008CE290 /* SingleStageRocketPerformanceCalculatorApp.swift */,
-				5393C667261F770D008CE290 /* ContentView.swift */,
+				53E1F1282633386500AA06EA /* View Models */,
+				53E1F120263323AC00AA06EA /* Managers */,
+				53E1F11B263236BA00AA06EA /* Extensions */,
+				538F51EC2631F79000A18A0C /* Models */,
+				538F51EB2631F74300A18A0C /* Views */,
+				53E1F121263323E200AA06EA /* RocketAppModel.xcdatamodeld */,
 				5393C669261F7710008CE290 /* Assets.xcassets */,
 				5393C66E261F7710008CE290 /* Info.plist */,
 				5393C66B261F7710008CE290 /* Preview Content */,
-				535B72602620CAC30031AE0F /* SingleStageModel.swift */,
-				535B72632620D4D00031AE0F /* ResultsView.swift */,
-				535B72662620E1B30031AE0F /* ParametersView.swift */,
-				535B72692620E2EA0031AE0F /* ComputedResultsView.swift */,
-				531A982126274C6300C3057D /* BisectionForCd.swift */,
 			);
 			path = SingleStageRocketPerformanceCalculator;
 			sourceTree = "<group>";
@@ -82,6 +123,32 @@
 				5393C66C261F7710008CE290 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		53E1F11B263236BA00AA06EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53E1F11C263236E700AA06EA /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		53E1F120263323AC00AA06EA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				53E1F125263326A100AA06EA /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		53E1F1282633386500AA06EA /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				53E1F1292633389A00AA06EA /* ModelListViewModel.swift */,
+				53E1F12E26333F2700AA06EA /* ModelDetailViewModel.swift */,
+				534F4B9C26713D3F00083456 /* ExistingModelViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,13 +220,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E1F123263323E200AA06EA /* RocketAppModel.xcdatamodeld in Sources */,
+				533D480A263753BF00A544B6 /* ExistingModelDetailView.swift in Sources */,
 				535B726A2620E2EA0031AE0F /* ComputedResultsView.swift in Sources */,
+				53E1F11D263236E700AA06EA /* View+Extensions.swift in Sources */,
+				534F4BA22672412E00083456 /* TestView.swift in Sources */,
 				535B72612620CAC30031AE0F /* SingleStageModel.swift in Sources */,
+				53E1F12A2633389A00AA06EA /* ModelListViewModel.swift in Sources */,
+				534F4B9D26713D3F00083456 /* ExistingModelViewModel.swift in Sources */,
 				531A982226274C6300C3057D /* BisectionForCd.swift in Sources */,
 				535B72642620D4D00031AE0F /* ResultsView.swift in Sources */,
-				5393C668261F770D008CE290 /* ContentView.swift in Sources */,
+				5393C668261F770D008CE290 /* AddModelDetailView.swift in Sources */,
+				53E1F12F26333F2700AA06EA /* ModelDetailViewModel.swift in Sources */,
 				535B72672620E1B30031AE0F /* ParametersView.swift in Sources */,
+				538F51E92631F73500A18A0C /* ModelListView.swift in Sources */,
 				5393C666261F770D008CE290 /* SingleStageRocketPerformanceCalculatorApp.swift in Sources */,
+				53E1F126263326A100AA06EA /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +424,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		53E1F121263323E200AA06EA /* RocketAppModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				53E1F122263323E200AA06EA /* CoreDataManager.xcdatamodel */,
+			);
+			currentVersion = 53E1F122263323E200AA06EA /* CoreDataManager.xcdatamodel */;
+			path = RocketAppModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5393C65A261F770D008CE290 /* Project object */;
 }
