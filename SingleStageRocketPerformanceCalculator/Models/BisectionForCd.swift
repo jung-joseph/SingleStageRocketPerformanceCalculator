@@ -23,7 +23,7 @@ class BisectionForCd: ObservableObject{
     var fatC: Double = 0.0
     var targetS: Double = 0.0
     
-    init(fromsingleStageModel singleStageModel: ExistingModelViewModel) {
+    init(singleStageModel: ExistingModelViewModel) {
         self.singleStageModel = singleStageModel
         ptA = 0.1
         ptB = 1.0

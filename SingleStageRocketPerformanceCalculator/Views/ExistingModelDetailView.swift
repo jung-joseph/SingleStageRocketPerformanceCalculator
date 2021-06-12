@@ -175,7 +175,7 @@ struct ExistingModelDetailView: View {
                 .shadow(radius: 10)
                 .sheet(isPresented: $showResultsSheet) {
                     
-                                ComputedResultsView(singleStageModel: existingModelVM)
+                                ComputedResultsView(currentModel: existingModelVM)
                             }
             }
         }

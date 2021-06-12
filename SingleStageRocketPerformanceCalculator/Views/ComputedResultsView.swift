@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ComputedResultsView: View {
-    var singleStageModel: ExistingModelViewModel
+    var currentModel: ExistingModelViewModel
     
     @State private var targetS_text: String = ""
     
@@ -19,34 +19,19 @@ struct ComputedResultsView: View {
     
     var body: some View {
         
-        let bisection = BisectionForCd(fromsingleStageModel: singleStageModel)
+        let bisection = BisectionForCd(singleStageModel: currentModel)
         //        var iter:Int = 0
         NavigationView {
         VStack{
             Text("Computed Values")
                 .padding()
             
-            //            Group{
-            //                Text("name \(singleStageModel.name)")
-            //                Text("crossSection \(singleStageModel.crossSectionalArea)")
-            //                Text("Cd \(singleStageModel.coefficientOfDrag)")
-            //                Text("aveDuration \(singleStageModel.thrustDuration)")
-            //                Text("aveMass \(singleStageModel.aveMass)")
-            //            }
-            //            Group{
-            //                Text("aveWoPropellant \(singleStageModel.massWoPropellant)")
-            //                Text("PropellantMass \(singleStageModel.propellantMass)")
-            //                Text("aveThrust \(singleStageModel.aveThrust)")
-            //                Text("mach \(singleStageModel.mach)")
-            //                Text("temperature \(singleStageModel.temperature)")
-            //                Text("rho \(singleStageModel.rho)")
-            //                Text("g \(singleStageModel.g)")
-            //            }
+            
             
             HStack{
                 Text("Terminal Velocity:")
                     .padding(.leading)
-                Text(String(format:"%.2f m/s",singleStageModel.terminalVelocity()))
+                Text(String(format:"%.2f m/s",currentModel.terminalVelocity()))
                     .foregroundColor(.red)
                 Spacer()
                 
@@ -56,7 +41,7 @@ struct ComputedResultsView: View {
                 Text("Velocity at Burnout:")
                     .padding(.leading)
                 
-                Text(String(format:"%.2f m/s",singleStageModel.velocityAtBurnout()))
+                Text(String(format:"%.2f m/s",currentModel.velocityAtBurnout()))
                     .foregroundColor(.green)
                 Spacer()
                 
@@ -67,7 +52,7 @@ struct ComputedResultsView: View {
                 Text("Altitude at Burnout:")
                     .padding(.leading)
                 
-                Text(String(format:"%.1f m, %.1f ft",singleStageModel.sAtBurnOut(), singleStageModel.sAtBurnOut() * 3.28084))
+                Text(String(format:"%.1f m, %.1f ft",currentModel.sAtBurnOut(), currentModel.sAtBurnOut() * 3.28084))
                     .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 Spacer()
                 
@@ -77,7 +62,7 @@ struct ComputedResultsView: View {
                 Text("Maximum Altitude:")
                     .padding(.leading)
                 
-                Text(String(format:"%.1f m, %.1f ft",singleStageModel.sMax(), singleStageModel.sMax() * 3.280084))
+                Text(String(format:"%.1f m, %.1f ft",currentModel.sMax(), currentModel.sMax() * 3.280084))
                     .foregroundColor(.red)
                 Spacer()
                 
@@ -87,7 +72,7 @@ struct ComputedResultsView: View {
                 Text("Time at Maximum Altitude:")
                     .padding(.leading)
                 
-                Text(String(format:"%.3f s",singleStageModel.tMax()))
+                Text(String(format:"%.3f s",currentModel.tMax()))
                     .foregroundColor(.green)
                 Spacer()
                 
@@ -97,7 +82,7 @@ struct ComputedResultsView: View {
                 Text("Mach Number:")
                     .padding(.leading)
                 
-                Text(String(format:"%.2f ",singleStageModel.machNumber()))
+                Text(String(format:"%.2f ",currentModel.machNumber()))
                     .foregroundColor(.blue)
                 Spacer()
                 
@@ -110,7 +95,7 @@ struct ComputedResultsView: View {
                     .foregroundColor(.red)
                 
                 TextField("Enter Max.Alt(if known),m", text: $targetS_text, onCommit:{
-                    singleStageModel.targetS = Double(targetS_text) ?? 0.0
+                    currentModel.targetS = Double(targetS_text) ?? 0.0
                 })
                 .foregroundColor(.green)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -118,7 +103,7 @@ struct ComputedResultsView: View {
                 
                 Button("Solve for a New Cd") {
                     print("Solve Pushed")
-                    ptC = bisection.bisect(targetS: singleStageModel.targetS)
+                    ptC = bisection.bisect(targetS: currentModel.targetS)
 
                 }
                 .padding()
@@ -127,12 +112,12 @@ struct ComputedResultsView: View {
                 .cornerRadius(10)
                 .shadow(radius: 10)
                 HStack {
-                Text("Updated Cd")
-                                                .foregroundColor(.red)
-                Text(String(format:"%.2f",ptC))
+                    Text("Updated Cd")
+                        .foregroundColor(.red)
+                    Text(String(format:"%.2f",ptC))
                 }
             }
- 
+            
         }
     }
     }
