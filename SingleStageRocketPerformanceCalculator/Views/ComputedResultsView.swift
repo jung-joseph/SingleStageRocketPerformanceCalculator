@@ -17,6 +17,7 @@ struct ComputedResultsView: View {
     @State private var ptC: Double = 0
     
     
+    
     var body: some View {
         
         let bisection = BisectionForCd(singleStageModel: currentModel)
@@ -104,7 +105,8 @@ struct ComputedResultsView: View {
                 Button("Solve for a New Cd") {
                     print("Solve Pushed")
                     ptC = bisection.bisect(targetS: currentModel.targetS)
-
+                    iter = bisection.iteration
+                        print("iterations \(iter)")
                 }
                 .padding()
                 .foregroundColor(Color.white)
@@ -116,6 +118,8 @@ struct ComputedResultsView: View {
                         .foregroundColor(.red)
                     Text(String(format:"%.2f",ptC))
                 }
+                Text("(Converged in \(iter) iterations)")
+
             }
             
         }
