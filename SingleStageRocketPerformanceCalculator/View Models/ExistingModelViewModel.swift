@@ -20,7 +20,10 @@ class ExistingModelViewModel: ObservableObject {
     @Published var mach: Double = 0.0
     @Published var temperature: Double = 0.0
     @Published var targetS: Double = 0.0
-    @Published var rho: Double = 0.948 // kg/m^3
+//    @Published var rho: Double = 0.948 // kg/m^3
+     var rho: Double {
+        return (8.0e4) / (287.0 * temperature)
+    }
     @Published var g: Double = 9.81 // m/sec^2
     
     func save() {
@@ -47,6 +50,11 @@ class ExistingModelViewModel: ObservableObject {
     func terminalVelocity() -> Double {
         let num = (aveThrust - (aveMass * g))
         if num >= 0.0 {
+            
+//            rho = (8.0e4) / (287.0 * temperature)
+            print("terminalVelocity")
+            print("num \(num) rho \(rho) crossSectionalArea \(crossSectionalArea) Cd \(coefficientOfDrag)")
+            print("temp \(temperature)")
             return pow((num)/(0.5*rho*crossSectionalArea*coefficientOfDrag), 0.5)
         } else {
             return 0.0
@@ -54,27 +62,32 @@ class ExistingModelViewModel: ObservableObject {
     }
 
     func velocityAtBurnout( ) -> Double {
+//        rho = (8.0e4) / (287.0 * temperature)
         let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
         return self.terminalVelocity()*tanh(b * thrustDuration)
     }
 
     func sAtBurnOut() -> Double {
+//        rho = (8.0e4) / (287.0 * temperature)
         let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
         return ((2.0 * aveMass) / (rho*crossSectionalArea*coefficientOfDrag)) * log(cosh(b * thrustDuration))
     }
     
     func timeCoast() -> Double {
+//        rho = (8.0e4) / (287.0 * temperature)
         let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
         return d/g * atan(self.velocityAtBurnout()/d)
     }
     
     func sMax() -> Double {
+//        rho = (8.0e4) / (287.0 * temperature)
         let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
 
         return self.sAtBurnOut() + ((massWoPropellant/(rho*crossSectionalArea*coefficientOfDrag)) * log( pow((self.velocityAtBurnout()/d), 2.0) + 1.0 ))
     }
     
     func tMax() -> Double {
+//        rho = (8.0e4) / (287.0 * temperature)
         let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
         let tCoast = (d/g) * atan(self.velocityAtBurnout()/d)
         return thrustDuration + tCoast

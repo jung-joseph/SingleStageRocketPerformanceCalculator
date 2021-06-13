@@ -164,7 +164,7 @@ struct ExistingModelDetailView: View {
                     existingModelVM.mach = model.mach
                     existingModelVM.temperature = model.temperature
                     existingModelVM.targetS = model.targetS
-                    existingModelVM.rho = model.rho
+//                    existingModelVM.rho = model.rho
                     existingModelVM.g = model.g
                     
                 }

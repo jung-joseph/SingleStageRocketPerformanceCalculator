@@ -25,44 +25,45 @@ extension Model {
 //    @Published var rho: Double = 0.948 // kg/m^3
 //    @Published var g: Double = 9.81 // m/sec^2
     
-    func terminalVelocity() -> Double {
-        let num = (aveThrust - (aveMass * g))
-        if num >= 0.0 {
-            return pow((num)/(0.5*rho*crossSectionalArea*coefficientOfDrag), 0.5)
-        } else {
-            return 0.0
-        }
-    }
-
-    func velocityAtBurnout( ) -> Double {
-        let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
-        return self.terminalVelocity()*tanh(b * thrustDuration)
-    }
-
-    func sAtBurnOut() -> Double {
-        let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
-        return ((2.0 * aveMass) / (rho*crossSectionalArea*coefficientOfDrag)) * log(cosh(b * thrustDuration))
-    }
-    
-    func timeCoast() -> Double {
-        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
-        return d/g * atan(self.velocityAtBurnout()/d)
-    }
-    
-    func sMax() -> Double {
-        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
-
-        return self.sAtBurnOut() + ((massWoPropellant/(rho*crossSectionalArea*coefficientOfDrag)) * log( pow((self.velocityAtBurnout()/d), 2.0) + 1.0 ))
-    }
-    
-    func tMax() -> Double {
-        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
-        let tCoast = (d/g) * atan(self.velocityAtBurnout()/d)
-        return thrustDuration + tCoast
-    }
-    
-    func machNumber() -> Double {
-        let speedOfSound = pow((1.4 * 287.0 * self.temperature), 0.5)
-        return self.velocityAtBurnout()/speedOfSound
-    }
+//    func terminalVelocity() -> Double {
+//        let num = (aveThrust - (aveMass * g))
+//        if num >= 0.0 {
+//          
+//            return pow((num)/(0.5*rho*crossSectionalArea*coefficientOfDrag), 0.5)
+//        } else {
+//            return 0.0
+//        }
+//    }
+//
+//    func velocityAtBurnout( ) -> Double {
+//        let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
+//        return self.terminalVelocity()*tanh(b * thrustDuration)
+//    }
+//
+//    func sAtBurnOut() -> Double {
+//        let b = ((rho * crossSectionalArea * coefficientOfDrag) / (2.0 * aveMass)) * self.terminalVelocity()
+//        return ((2.0 * aveMass) / (rho*crossSectionalArea*coefficientOfDrag)) * log(cosh(b * thrustDuration))
+//    }
+//    
+//    func timeCoast() -> Double {
+//        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
+//        return d/g * atan(self.velocityAtBurnout()/d)
+//    }
+//    
+//    func sMax() -> Double {
+//        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
+//
+//        return self.sAtBurnOut() + ((massWoPropellant/(rho*crossSectionalArea*coefficientOfDrag)) * log( pow((self.velocityAtBurnout()/d), 2.0) + 1.0 ))
+//    }
+//    
+//    func tMax() -> Double {
+//        let d = pow((massWoPropellant*g)/(0.5 * rho * crossSectionalArea * coefficientOfDrag), 0.5)
+//        let tCoast = (d/g) * atan(self.velocityAtBurnout()/d)
+//        return thrustDuration + tCoast
+//    }
+//    
+//    func machNumber() -> Double {
+//        let speedOfSound = pow((1.4 * 287.0 * self.temperature), 0.5)
+//        return self.velocityAtBurnout()/speedOfSound
+//    }
 }

@@ -14,14 +14,16 @@ struct ComputedResultsView: View {
     
     @State private var iter: Int = 0
     
-    @State private var ptC: Double = 0
+    @State private var newCd: Double = 0
+    
+    @State private var solutionFound: Bool = false
     
     
     
     var body: some View {
         
         let bisection = BisectionForCd(singleStageModel: currentModel)
-        //        var iter:Int = 0
+
         NavigationView {
         VStack{
             Text("Computed Values")
@@ -104,9 +106,10 @@ struct ComputedResultsView: View {
                 
                 Button("Solve for a New Cd") {
                     print("Solve Pushed")
-                    ptC = bisection.bisect(targetS: currentModel.targetS)
+                    solutionFound = bisection.bisect(targetS: currentModel.targetS)
+                    newCd = bisection.newCoefficientOfDrag
                     iter = bisection.iteration
-                        print("iterations \(iter)")
+                        print("iterations \(iter) newCd \(newCd)")
                 }
                 .padding()
                 .foregroundColor(Color.white)
@@ -116,9 +119,14 @@ struct ComputedResultsView: View {
                 HStack {
                     Text("Updated Cd")
                         .foregroundColor(.red)
-                    Text(String(format:"%.2f",ptC))
+                    Text(String(format:"%.2f",newCd))
                 }
-                Text("(Converged in \(iter) iterations)")
+                if solutionFound == true {
+                    Text("(Converged in \(iter) iterations)")
+                }
+                else {
+                    Text("No solution Found")
+                }
 
             }
             
